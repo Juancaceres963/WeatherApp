@@ -1,5 +1,8 @@
 import { useState, useEffect} from "react";
 import WeatherForm from "./weatherForm";
+import WeatherMainInfo from "./weatherMainInfo";
+
+import styles from "./weatherApp.module.css"
 
 export default function WeatherApp() {
   const [weather, setWeather] = useState(null);
@@ -32,9 +35,9 @@ export default function WeatherApp() {
   }
 
   return (
-    <div>
+    <div className={styles.weatherContainer}>
       <WeatherForm onChangeCity={handlechangeCity} />
-      <div>{weather?.current.temp_c}</div>
+      < WeatherMainInfo weather={weather}/>
     </div>
   );
 }
